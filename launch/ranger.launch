@@ -1,0 +1,16 @@
+
+<launch>
+	
+	<node pkg="teraranger" type="evo" name="evo" clear_params="true">
+		<param name="portname" value="/dev/terabee"/>
+		<param name="frame_id" value="base_range"/>
+		<remap from="teraranger_evo" to="teraranger_evo"/>
+	</node>
+
+	<node pkg="li_pkg" type="range2pose" name="range2pose" clear_params="true">
+		<remap from="range_topic" to="teraranger_evo"/>
+		<remap from="pose_topic" to="range_pose"/>
+		<remap from="imu_topic" to="gx5/imu/data"/>
+	</node>
+
+</launch>
