@@ -3,7 +3,7 @@
 
 	<include file="$(find li_pkg)/launch/microstrain.launch"/>
 
-	<include file="$(find li_pkg)/launch/ranger.launch"/>
+	<!--include file="$(find li_pkg)/launch/ranger.launch"/-->
 
 	<include file="$(find li_pkg)/launch/transforms.launch"/>
 
