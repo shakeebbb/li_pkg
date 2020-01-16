@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   tf2_ros
-  mav_planning_msgs
+  #mav_planning_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -138,7 +138,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
  add_executable(range2pose src/range2pose.cpp)
- add_executable(voxblox_planner_node src/voxblox_planner_node.cpp)
+ #add_executable(voxblox_planner_node src/voxblox_planner_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -154,9 +154,9 @@ include_directories(
  target_link_libraries(range2pose
    ${catkin_LIBRARIES}
  )
- target_link_libraries(voxblox_planner_node
-   ${catkin_LIBRARIES}
- )
+ #target_link_libraries(voxblox_planner_node
+ #  ${catkin_LIBRARIES}
+ #)
 
 #############
 ## Install ##
