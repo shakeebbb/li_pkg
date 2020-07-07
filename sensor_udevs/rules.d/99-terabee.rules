@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", ATTRS{product}=="STM32 Virtual ComPort", ATTRS{serial}=="00000000001A", SYMLINK+="terabee"

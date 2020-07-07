@@ -59,7 +59,7 @@ TRAJECTORY_BUILDER_3D = {
     max_angle_radians = 0.004,
   },
 
-  imu_gravity_time_constant = 10.,
+  imu_gravity_time_constant = 9.81,
   rotational_histogram_size = 120,
 
   submaps = {

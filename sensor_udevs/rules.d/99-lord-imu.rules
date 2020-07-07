@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", ATTRS{serial}=="0000__6254.97022", ATTRS{manufacturer}=="Lord Microstrain", SYMLINK+="microstrain"

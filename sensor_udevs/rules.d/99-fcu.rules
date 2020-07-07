@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="26ac", ATTRS{idProduct}=="0012", ATTRS{product}=="PX4 FMU v4.x", SYMLINK+="fcu"
