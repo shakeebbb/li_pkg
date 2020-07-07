@@ -46,9 +46,9 @@
           -configuration_directory $(find li_pkg)/configs
 	  -configuration_basename gene_3D_1_Ouster.lua"
       output="screen">
-    <remap from="/odom" to="/transformed_odom"/> 
-    <remap from="/points2" to="/os1_cloud_node/points"/>
-    <remap from="/imu" to="/gx5/imu/data"/>
+    <remap from="/odom" to="transformed_odom"/> 
+    <remap from="/points2" to="os1_cloud_node/points"/>
+    <remap from="/imu" to="gx5/imu/data"/>
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"

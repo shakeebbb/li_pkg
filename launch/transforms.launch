@@ -1,10 +1,13 @@
 
-<launch>  
-	<node pkg="tf2_ros" type="static_transform_publisher" name="microstrain2body" args="0 0 0 0 0 3.14159 base_link gx5_link"/>
+<launch>
 
-	<node pkg="tf2_ros" type="static_transform_publisher" name="terabee2body" args="0 0 -0.1143 0 0 0 1 base_link base_range"/>
+	<arg name="mav_name" default="$(env ROS_HOSTNAME)"/>
+  
+	<node pkg="tf2_ros" type="static_transform_publisher" name="microstrain2body" args="0 0 0 0 0 3.14159 $(arg mav_name)/base_link $(arg mav_name)/gx5_link"/>
 
-	<node pkg="tf2_ros" type="static_transform_publisher" name="ouster2body" args="0 0 -0.1143 3.14159 0 3.14159 base_link os1_lidar"/>
+	<node pkg="tf2_ros" type="static_transform_publisher" name="terabee2body" args="0 0 -0.1143 0 0 0 1 $(arg mav_name)/base_link $(arg mav_name)/base_range"/>
 
-	<node pkg="tf2_ros" type="static_transform_publisher" name="world2odom" args="0 0 0 0 0 0 1 odom world" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="ouster2body" args="0 0 -0.1143 3.14159 0 3.14159 $(arg mav_name)/base_link $(arg mav_name)/os1_lidar"/>
+
+	<!--node pkg="tf2_ros" type="static_transform_publisher" name="world2odom" args="0 0 0 0 0 0 1 $(arg mav_name)/odom world" /-->
 </launch>
