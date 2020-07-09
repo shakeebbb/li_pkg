@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <launch>
   <!-- Standalone example launch file for 3DM-GX5-25 -->
+  
+  <arg name="mav_name" default="$(env ROS_NAMESPACE)"/>  
 
   <!-- Declare arguments with default values -->
   <arg name="port" default="/dev/microstrain" />
@@ -39,7 +41,7 @@
     <!-- AHRS Settings -->
     <param name="publish_imu" value="true" type="bool" />
     <param name="imu_rate" value="$(arg imu_rate)" type="int" />
-    <param name="imu_frame_id" value="$(arg imu_frame_id)" type="str" />
+    <param name="imu_frame_id" value="$(arg mav_name)/$(arg imu_frame_id)" type="str" />
     <!-- Declination source 1=None, 2=magnetic, 3=manual -->
     <param name="declination_source" value="2" type="int" />
     <param name="declination" value="0.23" type="double" />

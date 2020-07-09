@@ -1,10 +1,12 @@
 <launch>
+	<arg name="mav_name" default="$(env ROS_NAMESPACE)"/>
+
   <arg name="serial_no"           default=""/>
   <arg name="usb_port_id"         default=""/>
   <arg name="device_type"         default=""/>
   <arg name="json_file_path"      default=""/>
   <arg name="camera"              default="$(env TOF_FORE_NAME)"/>
-  <arg name="tf_prefix"           default="$(arg camera)"/>
+  <arg name="tf_prefix"           default="$(arg mav_name)/$(arg camera)"/>
   <arg name="external_manager"    default="false"/>
   <arg name="manager"             default="realsense2_camera_manager"/>
 

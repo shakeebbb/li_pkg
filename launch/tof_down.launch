@@ -15,6 +15,8 @@
  limitations under the License.
 -->
 <launch>
+  <arg name="mav_name" default="$(env ROS_NAMESPACE)"/>
+
   <arg name="camera" default="$(env TOF_DOWN_NAME)"/>
   <arg name="serial_number" default="0007-2108-0181-2413"/>
   <arg name="on_at_startup" default="true"/>
@@ -66,8 +68,8 @@
       #
       # tf frame names
       #
-      optical_frame: $(arg camera)_optical_link
-      sensor_frame:  $(arg camera)_link
+      optical_frame: $(arg mav_name)/$(arg camera)_optical_link
+      sensor_frame:  $(arg mav_name)/$(arg camera)_link
 
       #
       # The camera node provides for a turning on/off the camera via software.
