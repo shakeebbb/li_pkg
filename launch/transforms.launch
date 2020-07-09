@@ -2,6 +2,10 @@
 <launch>
 
 	<arg name="mav_name" default="$(env ROS_NAMESPACE)"/>
+  <arg name="tof_fore_name" default="$(env TOF_FORE_NAME)"/>
+  <arg name="tof_up_name" default="$(env TOF_UP_NAME)"/>
+  <arg name="tof_down_name" default="$(env TOF_DOWN_NAME)"/>
+
 	<arg name="M_PI" default="3.14159265358979323846264338327950288"/>
   <arg name="M_PI_2" default="1.57079632679"/>
   <arg name="N_M_PI_2" default="-1.57079632679"/>
@@ -13,11 +17,11 @@
 
 	<node pkg="tf2_ros" type="static_transform_publisher" name="ouster2body" args="0 0 -0.1143 $(arg M_PI) 0 $(arg M_PI) $(arg mav_name)/base_link $(arg mav_name)/os1_lidar"/>
 
-	<node pkg="tf2_ros" type="static_transform_publisher" name="foreCam2body" args="0.250 0 -0.030 0 0 0 $(arg mav_name)/base_link $(arg mav_name)/fore_camera_link"/>
+	<node pkg="tf2_ros" type="static_transform_publisher" name="foreCam2body" args="0.250 0 -0.030 0 0 0 $(arg mav_name)/base_link $(arg mav_name)/$(arg tof_fore_name)_link"/>
 
-  <node pkg="tf2_ros" type="static_transform_publisher" name="upCam2body" args="0.150 0 0.010 $(arg M_PI) $(arg N_M_PI_2) 0 $(arg mav_name)/base_link $(arg mav_name)/up_camera_link"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="upCam2body" args="0.150 0 0.010 $(arg M_PI) $(arg N_M_PI_2) 0 $(arg mav_name)/base_link $(arg mav_name)/$(arg tof_up_name)_link"/>
 
-  <node pkg="tf2_ros" type="static_transform_publisher" name="downCam2body" args="0.090 0 -0.065 0 $(arg M_PI_2) 0 $(arg mav_name)/base_link $(arg mav_name)/down_camera_link"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="downCam2body" args="0.090 0 -0.065 0 $(arg M_PI_2) 0 $(arg mav_name)/base_link $(arg mav_name)/$(arg tof_down_name)_link"/>
 
 	<node if="$(arg publish_fake_origin)" pkg="tf2_ros" type="static_transform_publisher" name="world2odom" args="0 0 0 0 0 0 1 $(arg mav_name)/odom world"/>
 </launch>

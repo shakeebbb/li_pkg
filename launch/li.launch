@@ -10,4 +10,10 @@
 	<include file="$(find li_pkg)/launch/ouster.launch"/>
 
 	<include file="$(find li_pkg)/launch/cartographer.launch"/>
+
+  <include file="$(find li_pkg)/launch/tof_up.launch"/>
+
+  <include file="$(find li_pkg)/launch/tof_down.launch"/>
+
+  <include file="$(find li_pkg)/launch/tof_fore.launch"/>
 </launch>
