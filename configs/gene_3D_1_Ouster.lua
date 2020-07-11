@@ -15,15 +15,15 @@
 include "map_builder.lua"
 include "trajectory_builder.lua"
 
-mav_name = os.getenv("MY_ROBOT")
+mav_name = string.sub(os.getenv("ROS_NAMESPACE"), 2)
 
 options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
-  map_frame = mav_name .. "map",
+  map_frame = mav_name .. "/map",
   tracking_frame = mav_name .. "/base_link",
-  published_frame = mav_name .. "base_link",
-  odom_frame = mav_name .. "odom",
+  published_frame = mav_name .. "/base_link",
+  odom_frame = mav_name .. "/odom",
   provide_odom_frame = true,
   publish_frame_projected_to_2d = false,
   use_pose_extrapolator = false,

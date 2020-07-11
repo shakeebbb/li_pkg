@@ -10,7 +10,7 @@
   <arg name="imu_rate" default="1000" />
   <arg name="imu_frame_id" default="gx5_link" />
   <arg name="debug" default="false" />
-  <arg name="diagnostics" default="true" />
+  <arg name="diagnostics" default="false" />
 
   <!-- For setting debug level to debug -->
   <group if="$(arg debug)">

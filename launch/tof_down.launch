@@ -18,7 +18,7 @@
   <arg name="mav_name" default="$(env ROS_NAMESPACE)"/>
 
   <arg name="camera" default="$(env TOF_DOWN_NAME)"/>
-  <arg name="serial_number" default="0007-2108-0181-2413"/>
+  <arg name="serial_number" default="0007-2108-0181-1711"/>
   <arg name="on_at_startup" default="true"/>
   <arg name="use_case" default="MODE_9_10FPS_1000"/>
   <arg name="access_code" default="-"/>
@@ -94,5 +94,5 @@
   <node pkg="tf2_ros"
         type="static_transform_publisher"
         name="$(arg camera)_tf"
-        args="0 0 0 -1.5707963267948966 0 -1.5707963267948966 $(arg camera)_link $(arg camera)_optical_link"/>
+        args="0 0 0 -1.5707963267948966 0 -1.5707963267948966 $(arg mav_name)/$(arg camera)_link $(arg mav_name)/$(arg camera)_optical_link"/>
 </launch>

@@ -16,7 +16,7 @@
 
 	<node pkg="tf2_ros" type="static_transform_publisher" name="terabee2body" args="0 0 -0.1143 0 0 0 $(arg mav_name)/base_link $(arg mav_name)/base_range"/>
 
-	<node pkg="tf2_ros" type="static_transform_publisher" name="ouster2body" args="0 0 -0.1143 $(arg M_PI) 0 $(arg M_PI) $(arg mav_name)/base_link $(arg mav_name)/os1_lidar"/>
+	<node pkg="tf2_ros" type="static_transform_publisher" name="ouster2body" args="0 0 -0.1143 0 0 $(arg M_PI) $(arg mav_name)/base_link $(arg mav_name)/os1_sensor"/>
 
 	<node pkg="tf2_ros" type="static_transform_publisher" name="foreCam2body" args="0.250 0 -0.030 0 0 0 $(arg mav_name)/base_link $(arg mav_name)/$(arg tof_fore_name)_link"/>
 
