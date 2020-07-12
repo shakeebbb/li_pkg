@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="launch_cropbox" default="false"/>
+  <arg name="launch_cropbox" default="true"/>
 
   <!-- *************************** Ouster Launch *************************** -->
 
