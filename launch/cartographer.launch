@@ -16,12 +16,12 @@
       type="cartographer_occupancy_grid_node" args="-resolution 0.2" />
 
 	<node if="$(arg launch_tf2pose)" name="tf_to_pose" pkg="ros_conversions" type="tf_to_pose" output="log">
-	  <remap from="pose_topic" to="cart_pose"/>
+	  <remap from="~/pose_topic" to="cart_pose"/>
 			
 		<param name="tf_target_frame" value="$(arg mav_name)/odom"/>
 		<param name="tf_source_frame" value="$(arg mav_name)/base_link"/>
 		<param name="pose_frame_id" value="$(arg mav_name)/odom"/>
 			
-		<param name="loopRate" type="double" value="30.0"/>
+		<param name="rate" type="double" value="30.0"/>
 	</node>
 </launch>
