@@ -3,7 +3,9 @@
   <arg name="launch_occupancy_node" default="false"/>
   <arg name="mav_name" default="$(env ROS_NAMESPACE)"/>
 
-  <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" output="screen"
+  <arg name="log_output" default="screen"/>
+
+  <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" output="$(arg log_output)"
 	 args="-configuration_directory $(find li_pkg)/configs -configuration_basename gene_3D_1_Ouster.lua">
 
     <remap from="odom" to="transformed_odom"/> 
@@ -15,7 +17,7 @@
   <node if="$(arg launch_occupancy_node)" name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
       type="cartographer_occupancy_grid_node" args="-resolution 0.2" />
 
-	<node if="$(arg launch_tf2pose)" name="tf_to_pose" pkg="ros_conversions" type="tf_to_pose" output="log">
+	<node if="$(arg launch_tf2pose)" name="tf_to_pose" pkg="ros_conversions" type="tf_to_pose" output="$(arg log_output)">
 	  <remap from="~/pose_topic" to="cart_pose"/>
 			
 		<param name="tf_target_frame" value="$(arg mav_name)/odom"/>

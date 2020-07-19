@@ -2,7 +2,8 @@
 <launch>
   <!-- Standalone example launch file for 3DM-GX5-25 -->
   
-  <arg name="mav_name" default="$(env ROS_NAMESPACE)"/>  
+  <arg name="mav_name" default="$(env ROS_NAMESPACE)"/> 
+  <arg name="log_output" default="screen"/>
 
   <!-- Declare arguments with default values -->
   <arg name="port" default="/dev/microstrain" />
@@ -21,7 +22,7 @@
   <!-- Microstrain sensor node -->
   <node name="microstrain_mips_node"
   pkg="microstrain_mips"
-  type="microstrain_mips_node" output="screen" ns="gx5">
+  type="microstrain_mips_node" output="$(arg log_output)" ns="gx5">
     <param name="port" value="$(arg port)" type="str" />
     <param name="baudrate" value="$(arg baudrate)" type="int" />
 

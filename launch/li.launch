@@ -1,25 +1,40 @@
 
 <launch>
 
-	<arg name="mav_name" default="$(env ROS_NAMESPACE)" /> 
+	<arg name="mav_name" default="$(env ROS_NAMESPACE)" />
+  <arg name="log_output" default="screen"/> 
 
 	<arg name="fore_cam_name" default="$(env TOF_FORE_NAME)"/>
 	<arg name="up_cam_name" default="$(env TOF_UP_NAME)"/>
 	<arg name="down_cam_name" default="$(env TOF_DOWN_NAME)"/>
 
-	<include file="$(find li_pkg)/launch/microstrain.launch"/>
+	<include file="$(find li_pkg)/launch/microstrain.launch">
+    <arg name="log_output" value="$(arg log_output)"/>
+  </include>
 
-	<include file="$(find li_pkg)/launch/transforms.launch"/>
+	<include file="$(find li_pkg)/launch/transforms.launch">
+    <arg name="log_output" value="$(arg log_output)"/>
+  </include>
 
-	<include file="$(find li_pkg)/launch/ouster.launch"/>
+	<include file="$(find li_pkg)/launch/ouster.launch">
+    <arg name="log_output" value="$(arg log_output)"/>
+  </include>
 
-	<include file="$(find li_pkg)/launch/cartographer.launch"/>
+	<include file="$(find li_pkg)/launch/cartographer.launch">
+    <arg name="log_output" value="$(arg log_output)"/>
+  </include>
 
-  <include file="$(find li_pkg)/launch/tof_up.launch"/>
+  <include file="$(find li_pkg)/launch/tof_up.launch">
+    <arg name="log_output" value="$(arg log_output)"/>
+  </include>
 
-  <include file="$(find li_pkg)/launch/tof_down.launch"/>
+  <include file="$(find li_pkg)/launch/tof_down.launch">
+    <arg name="log_output" value="$(arg log_output)"/>
+  </include>
 
-  <include file="$(find li_pkg)/launch/tof_fore.launch"/>
+  <include file="$(find li_pkg)/launch/tof_fore.launch">
+    <arg name="log_output" value="$(arg log_output)"/>
+  </include>
 
   <node name="relay_ouster" type="relay" pkg="topic_tools" args="/$(arg mav_name)/os1_cloud_node/points_box_filter vb_cloud"/>
   <node name="relay_tof_up" type="relay" pkg="topic_tools" args="/$(arg mav_name)/$(arg up_cam_name)/stream/1/cloud vb_cloud"/>

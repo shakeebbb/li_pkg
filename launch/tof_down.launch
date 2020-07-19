@@ -16,6 +16,7 @@
 -->
 <launch>
   <arg name="mav_name" default="$(env ROS_NAMESPACE)"/>
+  <arg name="log_output" default="screen"/>
 
   <arg name="camera" default="$(env TOF_DOWN_NAME)"/>
   <arg name="serial_number" default="0007-2108-0181-1711"/>
@@ -27,13 +28,13 @@
         type="nodelet"
         name="$(arg camera)_standalone_nodelet"
         args="manager"
-        output="screen"/>
+        output="$(arg log_output)"/>
 
   <node pkg="nodelet"
         type="nodelet"
         name="$(arg camera)"
         args="load royale_ros/camera_nodelet $(arg camera)_standalone_nodelet"
-        output="screen">
+        output="$(arg log_output)">
 
     <!-- You can add topic remappings here, e.g.: -->
     <!-- <remap from="/$(arg camera)/stream/1/cloud" to="/$(arg camera)/cloud"/> -->
