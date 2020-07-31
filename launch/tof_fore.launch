@@ -58,7 +58,7 @@
   <arg name="allow_no_texture_points"   default="false"/>
 
   <group ns="$(arg camera)">
-    <include file="$(find realsense2_camera)/launch/includes/tof_fore_nodelet.launch.xml">
+    <include file="$(find li_pkg)/launch/tof_fore_nodelet.launch.xml">
       <arg name="log_output"               value="$(arg log_output)"/>
       <arg name="tf_prefix"                value="$(arg tf_prefix)"/>
       <arg name="external_manager"         value="$(arg external_manager)"/>
